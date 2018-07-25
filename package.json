@@ -1,0 +1,29 @@
+{
+  "name": "notzer.ntz2icml",
+  "version": "1.0.0",
+  "description": "Convert Notzer to ICML",
+  "main": "./src/index.js",
+  "scripts": {
+    "example": "node ./example/index.js",
+    "npm:next": "npm version patch && npm publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://signalwerk@github.com/signalwerk/notzer.ntz2icml.git"
+  },
+  "keywords": [
+    "notzer",
+    "icml"
+  ],
+  "author": "Stefan Huber",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/signalwerk/notzer.ntz2icml/issues"
+  },
+  "homepage": "https://github.com/signalwerk/notzer.ntz2icml#readme",
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "xmlbuilder": "^10.0.0"
+  }
+}

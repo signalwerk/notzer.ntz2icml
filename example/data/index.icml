@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?aid style="50" type="snippet" readerVersion="6.0" featureSet="513" product="8.0(370)" ?>
+<?aid SnippetType="InCopyInterchange"?>
+<Document DOMVersion="8.0" Self="ntz2icml_doc">
+  <RootCharacterStyleGroup Self="ntz2icml_character_styles">
+    <CharacterStyle Self="$ID/NormalCharacterStyle" Name="Default"/>
+    <CharacterStyle Self="CharacterStyle/stars" Name="stars"/>
+  </RootCharacterStyleGroup>
+  <RootParagraphStyleGroup Self="ntz2icml_paragraph_styles">
+    <ParagraphStyle Self="$ID/NormalParagraphStyle" Name="$ID/NormalParagraphStyle"/>
+    <ParagraphStyle Self="ParagraphStyle/h1-test" Name="h1-test"/>
+    <ParagraphStyle Self="ParagraphStyle/h2" Name="h2"/>
+    <ParagraphStyle Self="ParagraphStyle/p" Name="p"/>
+  </RootParagraphStyleGroup>
+  <Story Self="ntz2icml_story">
+    <ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/h1-test">
+      <Content>Heading 1</Content>
+    </ParagraphStyleRange>
+    <Br/>
+    <ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/h2">
+      <Content>Heading 2</Content>
+    </ParagraphStyleRange>
+    <Br/>
+    <ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/p">
+      <Content>This is a normal Paragraph. </Content>
+      <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/stars">
+        <Content> *** </Content>
+      </CharacterStyleRange>
+    </ParagraphStyleRange>
+    <Br/>
+  </Story>
+</Document>

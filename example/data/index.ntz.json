@@ -1,0 +1,65 @@
+[
+    [
+        {
+            "processor": {
+                "type": "paragraph",
+                "content-after": "RETURN",
+                "node": "h1",
+                "title": "h1-test"
+            },
+            "children": [
+                {
+                    "processor": {
+                        "type": "text"
+                    },
+                    "value": "Heading 1"
+                }
+            ]
+        },
+        {
+            "processor": {
+                "type": "paragraph",
+                "content-after": "RETURN",
+                "node": "h2",
+                "title": "h2"
+            },
+            "children": [
+                {
+                    "processor": {
+                        "type": "text"
+                    },
+                    "value": "Heading 2"
+                }
+            ]
+        },
+        {
+            "processor": {
+                "type": "paragraph",
+                "content-after": "RETURN",
+                "title": "p"
+            },
+            "children": [
+                {
+                    "processor": {
+                        "type": "text"
+                    },
+                    "value": "This is a normal Paragraph. "
+                },
+                {
+                    "processor": {
+                        "type": "inline",
+                        "title": "stars"
+                    },
+                    "children": [
+                        {
+                            "processor": {
+                                "type": "text"
+                            },
+                            "value": " *** "
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+]
