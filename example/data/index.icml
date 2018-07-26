@@ -22,10 +22,10 @@
     </ParagraphStyleRange>
     <Br/>
     <ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/p">
-      <Content>This is a normal Paragraph. </Content>
       <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/stars">
         <Content> *** </Content>
       </CharacterStyleRange>
+      <Content> This is a normal Paragraph.</Content>
     </ParagraphStyleRange>
     <Br/>
   </Story>

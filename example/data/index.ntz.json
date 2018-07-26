@@ -41,12 +41,6 @@
             "children": [
                 {
                     "processor": {
-                        "type": "text"
-                    },
-                    "value": "This is a normal Paragraph. "
-                },
-                {
-                    "processor": {
                         "type": "inline",
                         "title": "stars"
                     },
@@ -58,6 +52,12 @@
                             "value": " *** "
                         }
                     ]
+                },
+                {
+                    "processor": {
+                        "type": "text"
+                    },
+                    "value": " This is a normal Paragraph."
                 }
             ]
         }
