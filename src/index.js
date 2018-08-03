@@ -2,9 +2,11 @@
 var xmlbuilder = require("xmlbuilder");
 var _ = require("lodash");
 
+const noCharacterStyle = "$ID/[No character style]";
+
 class ntz2icml {
   constructor() {
-    this.producer = 'ntz2icml';
+    this.producer = "ntz2icml";
     this.doc = xmlbuilder
       .create("Document", {
         version: "1.0",
@@ -33,7 +35,9 @@ class ntz2icml {
     this.characterStyles = [];
     this.paragraphStyles = [];
 
-    this.addCharacterStyle("Default", { Self: "$ID/NormalCharacterStyle" });
+    this.addCharacterStyle(noCharacterStyle, { Self: noCharacterStyle });
+    // this.addCharacterStyle("Default", { Self: "$ID/NormalCharacterStyle" });
+
     this.addParagraphStyle("$ID/NormalParagraphStyle", {
       Self: "$ID/NormalParagraphStyle"
     });
@@ -75,26 +79,25 @@ class ntz2icml {
     }
   }
 
-  _preprocess(root, ast) {
+  _preprocess(root, ast, parent) {
     if (_.isUndefined(ast)) {
       return;
     }
 
     if (_.isArray(ast)) {
       _.forEach(ast, item => {
-        this._preprocess(root, item);
+        this._preprocess(root, item, parent);
       });
       return;
     }
 
     if (_.isObject(ast)) {
-
       let type = ast.processor.type;
 
       switch (type) {
         case "root":
           if (ast.children) {
-            return this._preprocess(root, ast.children);
+            return this._preprocess(root, ast.children, ast);
           }
           return;
           break;
@@ -105,28 +108,44 @@ class ntz2icml {
             .att("AppliedParagraphStyle", paragraphStyleID);
 
           if (ast.children) {
-            this._preprocess(eleParagraph, ast.children);
+            this._preprocess(eleParagraph, ast.children, ast);
           }
           root.ele("Br");
           return;
           break;
         case "inline":
-          let characterStyleID = this.addCharacterStyle(ast.processor.title || "Default");
+          let characterStyleID = this.addCharacterStyle(
+            ast.processor.title || noCharacterStyle
+          );
           let eleCharacterStyle = root
             .ele("CharacterStyleRange")
             .att("AppliedCharacterStyle", characterStyleID);
 
           if (ast.children) {
-            this._preprocess(eleCharacterStyle, ast.children);
+            this._preprocess(eleCharacterStyle, ast.children, ast);
           }
           return;
 
           break;
         case "text":
-          let eleTxt = root.ele("Content").txt(ast.value);
+          let eleTxt = null;
+
+          // if there is no caracter style add default
+          if (parent && parent.processor.type !== "inline") {
+            let characterStyleID = this.addCharacterStyle(noCharacterStyle);
+            let eleCharacterStyle = root
+              .ele("CharacterStyleRange")
+              .att("AppliedCharacterStyle", characterStyleID);
+
+            eleTxt = eleCharacterStyle.ele("Content").txt(ast.value);
+          } else {
+            eleTxt = root.ele("Content").txt(ast.value);
+          }
+
+          // let eleTxt = root.ele("Content").txt(ast.value);
 
           if (ast.children) {
-            return this._preprocess(eleTxt, ast.children);
+            return this._preprocess(eleTxt, ast.children, ast);
           }
           return;
           break;

@@ -3,7 +3,7 @@
 <?aid SnippetType="InCopyInterchange"?>
 <Document DOMVersion="8.0" Self="ntz2icml_doc">
   <RootCharacterStyleGroup Self="ntz2icml_character_styles">
-    <CharacterStyle Self="$ID/NormalCharacterStyle" Name="Default"/>
+    <CharacterStyle Self="$ID/[No character style]" Name="$ID/[No character style]"/>
     <CharacterStyle Self="CharacterStyle/stars" Name="stars"/>
   </RootCharacterStyleGroup>
   <RootParagraphStyleGroup Self="ntz2icml_paragraph_styles">
@@ -14,18 +14,24 @@
   </RootParagraphStyleGroup>
   <Story Self="ntz2icml_story">
     <ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/h1-test">
-      <Content>Heading 1</Content>
+      <CharacterStyleRange AppliedCharacterStyle="$ID/[No character style]">
+        <Content>Heading 1</Content>
+      </CharacterStyleRange>
     </ParagraphStyleRange>
     <Br/>
     <ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/h2">
-      <Content>Heading 2</Content>
+      <CharacterStyleRange AppliedCharacterStyle="$ID/[No character style]">
+        <Content>Heading 2</Content>
+      </CharacterStyleRange>
     </ParagraphStyleRange>
     <Br/>
     <ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/p">
+      <CharacterStyleRange AppliedCharacterStyle="$ID/[No character style]">
+        <Content>This is a normal Paragraph. </Content>
+      </CharacterStyleRange>
       <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/stars">
         <Content> *** </Content>
       </CharacterStyleRange>
-      <Content> This is a normal Paragraph.</Content>
     </ParagraphStyleRange>
     <Br/>
   </Story>
