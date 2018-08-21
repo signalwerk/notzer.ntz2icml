@@ -26,13 +26,34 @@
     </ParagraphStyleRange>
     <Br/>
     <ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/p">
-      <CharacterStyleRange AppliedCharacterStyle="$ID/[No character style]">
-        <Content>This is a normal Paragraph. </Content>
-      </CharacterStyleRange>
       <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/stars">
         <Content> *** </Content>
       </CharacterStyleRange>
+      <CharacterStyleRange AppliedCharacterStyle="$ID/[No character style]">
+        <Content> This is a normal Paragraph.</Content>
+      </CharacterStyleRange>
     </ParagraphStyleRange>
     <Br/>
+    <Rectangle Self="uec" ItemTransform="1 0 0 1 0 0">
+      <Properties>
+        <PathGeometry>
+          <GeometryPathType PathOpen="false">
+            <PathPointArray>
+              <PathPointType Anchor="-100 -141.4284900737658" LeftDirection="-100 -141.4284900737658" RightDirection="-100 -141.4284900737658"/>
+              <PathPointType Anchor="-100 141.4284900737658" LeftDirection="-100 141.4284900737658" RightDirection="-100 141.4284900737658"/>
+              <PathPointType Anchor="100 141.4284900737658" LeftDirection="100 141.4284900737658" RightDirection="100 141.4284900737658"/>
+              <PathPointType Anchor="100 -141.4284900737658" LeftDirection="100 -141.4284900737658" RightDirection="100 -141.4284900737658"/>
+            </PathPointArray>
+          </GeometryPathType>
+        </PathGeometry>
+      </Properties>
+      <PDF Self="u166" AppliedObjectStyle="ObjectStyle/$ID/[None]" ItemTransform="0.33597854844163916 0 0 0.33597854844163916 -109.91267749536728 -151.34120116698793">
+        <Properties>
+          <GraphicBounds Left="29.5039" Top="29.504" Right="624.78" Bottom="871.394"/>
+        </Properties>
+        <Link Self="u163" LinkResourceURI="file:./pdf/CropTrim.pdf"/>
+        <PDFAttribute PageNumber="1" PDFCrop="CropTrim" TransparentBackground="true"/>
+      </PDF>
+    </Rectangle>
   </Story>
 </Document>

@@ -41,12 +41,6 @@
             "children": [
                 {
                     "processor": {
-                        "type": "text"
-                    },
-                    "value": "This is a normal Paragraph. "
-                },
-                {
-                    "processor": {
                         "type": "inline",
                         "title": "stars"
                     },
@@ -58,8 +52,31 @@
                             "value": " *** "
                         }
                     ]
+                },
+                {
+                    "processor": {
+                        "type": "text"
+                    },
+                    "value": " This is a normal Paragraph."
                 }
             ]
+        },
+        {
+            "processor": {
+                "type": "img",
+                "title": "img",
+                "src": "./pdf/CropTrim.pdf",
+                "alt": "test"
+            },
+            "style": {
+                "width": "200",
+                "height": "auto",
+                "background-position": "0 0",
+                "background-size": "200 auto",
+                "background-PDFCropBounds": "29.5039 29.504 624.78 871.394",
+                "background-PDFCropName": "CropTrim"
+            },
+            "children": []
         }
     ]
 ]

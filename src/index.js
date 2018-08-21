@@ -127,6 +127,118 @@ class ntz2icml {
           return;
 
           break;
+
+        case "img":
+          let width = ast.style.width;
+          let height = ast.style.height;
+
+          let [backgroundWidth, backgroundHeight] = ast.style[
+            "background-size"
+          ].split(" ");
+
+          let [backgroundLeft, backgroundTop] = ast.style["background-position"]
+            .split(" ")
+            .map(f => parseFloat(f));
+
+          let backgroundClip = ast.style["background-PDFCropBounds"]
+            .split(" ")
+            .map(f => parseFloat(f));
+
+          let pdfWidth = backgroundClip[2] - backgroundClip[0];
+          let pdfHeight = backgroundClip[3] - backgroundClip[1];
+
+          // set background
+          backgroundWidth = parseFloat(backgroundWidth); // no auto-handling
+
+          if (backgroundHeight === "auto") {
+            backgroundHeight = (backgroundWidth / pdfWidth) * pdfHeight;
+          } else {
+            backgroundHeight = parseFloat(backgroundHeight);
+          }
+
+          // set final box
+          if (width === "auto") {
+            width = backgroundWidth + backgroundLeft;
+          } else {
+            width = parseFloat(width);
+          }
+
+          if (height === "auto") {
+            height = backgroundHeight + backgroundTop;
+          } else {
+            height = parseFloat(height);
+          }
+
+          let rect = root
+            .ele("Rectangle")
+            .att("Self", "uec")
+            .att("ItemTransform", "1 0 0 1 0 0");
+
+          let PathPoints = rect
+            .ele("Properties")
+            .ele("PathGeometry")
+            .ele("GeometryPathType")
+            .att("PathOpen", "false")
+            .ele("PathPointArray");
+
+          PathPoints.ele("PathPointType")
+            .att("Anchor", `${0 - width / 2} ${0 - height / 2}`)
+            .att("LeftDirection", `${0 - width / 2} ${0 - height / 2}`)
+            .att("RightDirection", `${0 - width / 2} ${0 - height / 2}`);
+
+          PathPoints.ele("PathPointType")
+            .att("Anchor", `${0 - width / 2} ${height / 2}`)
+            .att("LeftDirection", `${0 - width / 2} ${height / 2}`)
+            .att("RightDirection", `${0 - width / 2} ${height / 2}`);
+
+          PathPoints.ele("PathPointType")
+            .att("Anchor", `${width / 2} ${height / 2}`)
+            .att("LeftDirection", `${width / 2} ${height / 2}`)
+            .att("RightDirection", `${width / 2} ${height / 2}`);
+
+          PathPoints.ele("PathPointType")
+            .att("Anchor", `${width / 2} ${0 - height / 2}`)
+            .att("LeftDirection", `${width / 2} ${0 - height / 2}`)
+            .att("RightDirection", `${width / 2} ${0 - height / 2}`);
+
+          let scaleX = (1 * backgroundWidth) / pdfWidth;
+          let scaleY = (1 * backgroundHeight) / pdfHeight;
+
+          // indesign calculates from center so calc the x/y top left
+          let xOffset =
+            0 - backgroundClip[0] * scaleX - width / 2 + backgroundLeft;
+          let yOffset =
+            0 - backgroundClip[1] * scaleY - height / 2 + backgroundTop;
+
+          let PDF = rect
+            .ele("PDF")
+            .att("Self", "u166")
+            .att("AppliedObjectStyle", "ObjectStyle/$ID/[None]")
+            .att(
+              "ItemTransform",
+              `${scaleX} 0 0 ${scaleY} ${xOffset} ${yOffset}`
+            );
+
+          PDF.ele("Properties")
+            .ele("GraphicBounds")
+            .att("Left", backgroundClip[0])
+            .att("Top", backgroundClip[1])
+            .att("Right", backgroundClip[2])
+            .att("Bottom", backgroundClip[3]);
+
+          PDF.ele("Link")
+            .att("Self", "u163")
+            .att("LinkResourceURI", "file:" + ast.processor.src);
+
+          PDF.ele("PDFAttribute")
+            .att("PageNumber", "1")
+            .att("PDFCrop", ast.style["background-PDFCropName"] || "CropMedia")
+            .att("TransparentBackground", "true");
+
+          return;
+
+          break;
+
         case "text":
           let eleTxt = null;
 
