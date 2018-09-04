@@ -21,3 +21,7 @@ let ntz2icml = new Ntz2icml();
 fs.writeFileSync("./data/index.icml", ntz2icml.convert(ntz));
 
 ```
+
+## Infos
+* [IDML Overview (German)](https://www.markupforum.de/images/2015/vortraege/IDML_Fellenz.pdf)
+* [Coordinate Spaces & Transformations in InDesign](http://www.indiscripts.com/tag/CST)
