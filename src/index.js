@@ -28,18 +28,28 @@ class ntz2icml {
       Self: `${this.producer}_paragraph_styles`
     });
 
+    this.rootObjectStyleGroup = this.doc.ele("RootObjectStyleGroup", {
+      Self: `${this.producer}_object_styles`
+    });
+
+
+
     this.story = this.doc.ele("Story", {
       Self: `${this.producer}_story`
     });
 
     this.characterStyles = [];
     this.paragraphStyles = [];
+    this.objectStyles = [];
 
     this.addCharacterStyle(noCharacterStyle, { Self: noCharacterStyle });
     // this.addCharacterStyle("Default", { Self: "$ID/NormalCharacterStyle" });
 
     this.addParagraphStyle("$ID/NormalParagraphStyle", {
       Self: "$ID/NormalParagraphStyle"
+    });
+    this.addObjectStyle("img", {
+      Self: "ObjectStyle/img"
     });
   }
 
@@ -78,6 +88,25 @@ class ntz2icml {
       return paragraphStyle.ID;
     }
   }
+
+  addObjectStyle(title, attr) {
+    var found = this.objectStyles.find(element => {
+      return element.title === title;
+    });
+
+    if (found) {
+      return found.ID;
+    } else {
+      let objectStyle = {
+        ID: (attr && attr.Self) || `ObjectStyle/${title}`,
+        title: title,
+        attr: attr
+      };
+      this.objectStyles.push(objectStyle);
+      return objectStyle.ID;
+    }
+  }
+
 
   _preprocess(root, ast, parent) {
     if (_.isUndefined(ast)) {
@@ -300,6 +329,15 @@ class ntz2icml {
         .att("Self", paragraphStyle.ID)
         .att("Name", paragraphStyle.title);
     });
+
+    // set paragraphStyles
+    this.objectStyles.forEach(objectStyle => {
+      this.rootObjectStyleGroup
+        .ele("ObjectStyle")
+        .att("Self", objectStyle.ID)
+        .att("Name", objectStyle.title);
+    });
+
 
     var xmlString = this.doc.end({
       pretty: true,

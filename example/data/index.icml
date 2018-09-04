@@ -12,6 +12,9 @@
     <ParagraphStyle Self="ParagraphStyle/h2" Name="h2"/>
     <ParagraphStyle Self="ParagraphStyle/p" Name="p"/>
   </RootParagraphStyleGroup>
+  <RootObjectStyleGroup Self="ntz2icml_object_styles">
+    <ObjectStyle Self="ObjectStyle/img" Name="img"/>
+  </RootObjectStyleGroup>
   <Story Self="ntz2icml_story">
     <ParagraphStyleRange AppliedParagraphStyle="ParagraphStyle/h1-test">
       <CharacterStyleRange AppliedCharacterStyle="$ID/[No character style]">
