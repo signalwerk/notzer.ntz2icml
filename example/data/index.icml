@@ -34,20 +34,20 @@
       </CharacterStyleRange>
     </ParagraphStyleRange>
     <Br/>
-    <Rectangle Self="uec" ItemTransform="1 0 0 1 0 0">
+    <Rectangle Self="uec" ItemTransform="1 0 0 1 0 0" AppliedObjectStyle="ObjectStyle/img">
       <Properties>
         <PathGeometry>
           <GeometryPathType PathOpen="false">
             <PathPointArray>
-              <PathPointType Anchor="-100 -141.4284900737658" LeftDirection="-100 -141.4284900737658" RightDirection="-100 -141.4284900737658"/>
-              <PathPointType Anchor="-100 141.4284900737658" LeftDirection="-100 141.4284900737658" RightDirection="-100 141.4284900737658"/>
-              <PathPointType Anchor="100 141.4284900737658" LeftDirection="100 141.4284900737658" RightDirection="100 141.4284900737658"/>
-              <PathPointType Anchor="100 -141.4284900737658" LeftDirection="100 -141.4284900737658" RightDirection="100 -141.4284900737658"/>
+              <PathPointType Anchor="-100 NaN" LeftDirection="-100 NaN" RightDirection="-100 NaN"/>
+              <PathPointType Anchor="-100 NaN" LeftDirection="-100 NaN" RightDirection="-100 NaN"/>
+              <PathPointType Anchor="100 NaN" LeftDirection="100 NaN" RightDirection="100 NaN"/>
+              <PathPointType Anchor="100 NaN" LeftDirection="100 NaN" RightDirection="100 NaN"/>
             </PathPointArray>
           </GeometryPathType>
         </PathGeometry>
       </Properties>
-      <PDF Self="u166" AppliedObjectStyle="ObjectStyle/$ID/[None]" ItemTransform="0.33597854844163916 0 0 0.33597854844163916 -109.91267749536728 -151.34120116698793">
+      <PDF Self="u166" AppliedObjectStyle="ObjectStyle/$ID/[None]" ItemTransform="0.2519839113312293 0 0 0.2519839113312293 92.56549187847455 NaN">
         <Properties>
           <GraphicBounds Left="29.5039" Top="29.504" Right="624.78" Bottom="871.394"/>
         </Properties>

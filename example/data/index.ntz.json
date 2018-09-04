@@ -69,12 +69,12 @@
                 "alt": "test"
             },
             "style": {
-                "width": "200",
-                "height": "auto",
-                "background-position": "0 0",
-                "background-size": "200 auto",
-                "background-PDFCropBounds": "29.5039 29.504 624.78 871.394",
-                "background-PDFCropName": "CropTrim"
+              "background-PDFCropBounds": "29.5039 29.504 624.78 871.394",
+              "background-PDFCropName": "CropTrim",
+              "background-position": "200 auto",
+              "background-size": "150 auto",
+              "height": "auto",
+              "width": "200"
             },
             "children": []
         }
