@@ -172,7 +172,8 @@ class ntz2icml {
           let rect = root
             .ele("Rectangle")
             .att("Self", "uec")
-            .att("ItemTransform", "1 0 0 1 0 0");
+            .att("ItemTransform", "1 0 0 1 0 0")
+            .att("AppliedObjectStyle", "ObjectStyle/img");
 
           let PathPoints = rect
             .ele("Properties")
