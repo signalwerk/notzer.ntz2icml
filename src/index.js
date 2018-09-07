@@ -136,7 +136,12 @@ class ntz2icml {
           if (ast.children) {
             this._preprocess(eleParagraph, ast.children, ast);
           }
-          root.ele("Br");
+          if (
+            ast.processor['content-after'] &&
+            ast.processor['content-after'] === 'RETURN'
+          ) {
+            root.ele('Br')
+          }
           return;
           break;
         case "inline":
