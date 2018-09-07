@@ -32,8 +32,6 @@ class ntz2icml {
       Self: `${this.producer}_object_styles`
     });
 
-
-
     this.story = this.doc.ele("Story", {
       Self: `${this.producer}_story`
     });
@@ -106,7 +104,6 @@ class ntz2icml {
       return objectStyle.ID;
     }
   }
-
 
   _preprocess(root, ast, parent) {
     if (_.isUndefined(ast)) {
@@ -337,7 +334,6 @@ class ntz2icml {
         .att("Self", objectStyle.ID)
         .att("Name", objectStyle.title);
     });
-
 
     var xmlString = this.doc.end({
       pretty: true,
